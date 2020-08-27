@@ -13,7 +13,7 @@ export default function TodoList() {
         fontSize: "3rem"
     }
 
-    const {todos} = useContext(Context);
+    const {todos, setTodos} = useContext(Context);
 
     return (
         <ul>

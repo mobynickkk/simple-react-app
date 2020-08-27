@@ -24,7 +24,7 @@ const styles = {
 
 export default function Todo({todo, onChange}) {
 
-    const { toggleReadiness, remove } = useContext(Context);
+    const { toggleReadiness, removeTodo } = useContext(Context);
 
     const classes = [];
 
@@ -38,7 +38,7 @@ export default function Todo({todo, onChange}) {
         <div style={styles.div}>
             <input type="checkbox" checked={todo.completed} onChange={() => toggleReadiness(todo.id)} />
             <li className={classes.join(" ")} style={styles.li}><strong>{todo.id}</strong> {todo.text}</li>
-            <button style={styles.button}>&times;</button>
+            <button onClick={() => removeTodo(todo.id)} style={styles.button}>&times;</button>
         </div>
     );
 }
