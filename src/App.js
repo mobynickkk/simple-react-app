@@ -8,8 +8,7 @@ function App() {
   }
 
   const style = {
-    padding: "30vw 20vh",
-    fontFamily: "Roboto"
+    padding: "20vh 30vw"
   }
 
   return (

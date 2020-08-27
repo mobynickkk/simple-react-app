@@ -1,4 +1,5 @@
 import React from 'react';
+import Todo from './Todo';
 
 
 export default function TodoList() {
@@ -11,7 +12,7 @@ export default function TodoList() {
 
     return (
         <ul>
-            
+            <Todo id="1" text="Купить арбуз" />
             <button style={buttonStyle}>+</button>
         </ul>
     );
