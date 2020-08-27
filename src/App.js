@@ -3,18 +3,30 @@ import TodoList from './components/TodoList';
 
 function App() {
 
-  const todos = {
-
-  }
+  const [todos, setTodos] = React.useState([
+    {id: 1, completed: false, text: "Купить арбуз"},
+    {id: 2, completed: false, text: "Купить кефир"},
+    {id: 3, completed: false, text: "Купить яйца"}
+  ]);
 
   const style = {
     padding: "20vh 30vw"
+  };
+
+  function toggleReadiness(id){
+    setTodos(
+      todos.map(todo => {
+        if (todo.id === id)
+          todo.completed = !todo.completed;
+        return todo;
+      })
+    )
   }
 
   return (
     <div style={style}>
       <h1>TODO list by mobynickkk</h1>
-      <TodoList />
+      <TodoList toggleReadiness={toggleReadiness} />
     </div>
   );
 }
