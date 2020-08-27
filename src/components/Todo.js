@@ -12,7 +12,10 @@ const styles = {
         margin: "1vh 0"
     },
     li: {
-        listStyleType: "none"
+        listStyleType: "none",
+        flex: "1",
+        marginLeft: ".2rem",
+        outline: "none"
     },
     button: {
         background: "red",
@@ -22,7 +25,7 @@ const styles = {
     }
 }
 
-export default function Todo({todo, onChange}) {
+export default function Todo({todo, index}) {
 
     const { toggleReadiness, removeTodo } = useContext(Context);
 
@@ -37,7 +40,10 @@ export default function Todo({todo, onChange}) {
     return (
         <div style={styles.div}>
             <input type="checkbox" checked={todo.completed} onChange={() => toggleReadiness(todo.id)} />
-            <li className={classes.join(" ")} style={styles.li}><strong>{todo.id}</strong> {todo.text}</li>
+            <strong style={{marginLeft: "1rem"}}>{index+1 }&nbsp;</strong>
+            <li contentEditable="true" className={classes.join(" ")} style={styles.li}>
+                {todo.text}
+            </li>
             <button onClick={() => removeTodo(todo.id)} style={styles.button}>&times;</button>
         </div>
     );

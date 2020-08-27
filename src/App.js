@@ -10,6 +10,8 @@ function App() {
     {id: 3, completed: false, text: "Купить яйца"}
   ]);
 
+  let last = 3;
+
   const style = {
     padding: "20vh 30vw"
   };
@@ -30,10 +32,13 @@ function App() {
     setTodos(
       todos.filter(todo => todo.id !== id)
     )
+    if (id === last && id !== 1) {
+      last -= 1;
+    }
   }
 
   return (
-    <Context.Provider value={{todos, setTodos, removeTodo, toggleReadiness}}>
+    <Context.Provider value={{last, todos, setTodos, removeTodo, toggleReadiness}}>
       <div style={style}>
         <h1>TODO list by mobynickkk</h1>
         <TodoList />

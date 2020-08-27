@@ -13,16 +13,20 @@ export default function TodoList() {
         fontSize: "3rem"
     }
 
-    const {todos, setTodos} = useContext(Context);
+    const {todos, setTodos, last} = useContext(Context);
 
     return (
         <ul>
             {
-                todos.map(todo => {
-                    return <Todo key={todo.id} todo={todo} />  
+                todos.map((todo, i) => {
+                    return <Todo key={todo.id} todo={todo} index={i} />  
                 })
             }
-            <button style={buttonStyle}>+</button>
+            <button onClick={() => {
+                setTodos(
+                    todos.concat({id: Date.now(), completed: false, text: "Введите что надо купить"})
+                )
+            }} style={buttonStyle}>+</button>
         </ul>
     );
 }
