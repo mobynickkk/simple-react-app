@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoList';
+import Context from './context';
 
 function App() {
 
@@ -24,10 +25,12 @@ function App() {
   }
 
   return (
-    <div style={style}>
-      <h1>TODO list by mobynickkk</h1>
-      <TodoList toggleReadiness={toggleReadiness} />
-    </div>
+    <Context.Provider>
+      <div style={style}>
+        <h1>TODO list by mobynickkk</h1>
+        <TodoList toggleReadiness={toggleReadiness} />
+      </div>
+    </Context.Provider>
   );
 }
 
