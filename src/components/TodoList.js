@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Todo from './Todo';
 
 
@@ -8,7 +8,9 @@ export default function TodoList() {
         height: "10vh",
         border: "1px solid #gray",
         borderRadius: "15px"
-      }
+    }
+
+    
 
     return (
         <ul>

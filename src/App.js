@@ -24,11 +24,17 @@ function App() {
     )
   }
 
+  function removeTodo(id) {
+    setTodos(
+      todos.filter(todo => todo.id !== id)
+    )
+  }
+
   return (
-    <Context.Provider>
+    <Context.Provider value={{todos, removeTodo, toggleReadiness}}>
       <div style={style}>
         <h1>TODO list by mobynickkk</h1>
-        <TodoList toggleReadiness={toggleReadiness} />
+        <TodoList />
       </div>
     </Context.Provider>
   );
