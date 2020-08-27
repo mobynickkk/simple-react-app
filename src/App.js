@@ -17,11 +17,13 @@ function App() {
   function toggleReadiness(id){
     setTodos(
       todos.map(todo => {
-        if (todo.id === id)
+        if (todo.id === id) {
           todo.completed = !todo.completed;
+        }
         return todo;
       })
     )
+    
   }
 
   function removeTodo(id) {
@@ -31,7 +33,7 @@ function App() {
   }
 
   return (
-    <Context.Provider value={{todos, removeTodo, toggleReadiness}}>
+    <Context.Provider value={{todos, setTodos, removeTodo, toggleReadiness}}>
       <div style={style}>
         <h1>TODO list by mobynickkk</h1>
         <TodoList />

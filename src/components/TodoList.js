@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import Todo from './Todo';
+import Context from '../context';
 
 
 export default function TodoList() {
@@ -7,14 +8,20 @@ export default function TodoList() {
         width: "100%",
         height: "10vh",
         border: "1px solid #gray",
-        borderRadius: "15px"
+        borderRadius: "15px",
+        background: "white",
+        fontSize: "3rem"
     }
 
-    
+    const {todos} = useContext(Context);
 
     return (
         <ul>
-            <Todo id="1" text="Купить арбуз" />
+            {
+                todos.map(todo => {
+                    return <Todo key={todo.id} todo={todo} />  
+                })
+            }
             <button style={buttonStyle}>+</button>
         </ul>
     );
